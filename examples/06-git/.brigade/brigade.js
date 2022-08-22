@@ -11,7 +11,7 @@ events.on("brigade.sh/cli", "exec", async event => {
     "-c",
     // Wait for the Docker daemon to start up
     // And then pull the image
-    "sleep 30 && docker pull busybox"
+    "sleep 20 && docker pull busybox"
   ];
 
   // Run the Docker daemon in a sidecar container
