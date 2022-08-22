@@ -5,7 +5,7 @@ events.on("brigade.sh/cli", "exec", async event => {
   let keys = Object.keys(job.primaryContainer)
   console.log(keys);
   job.primaryContainer.privileged = true;
-  job.primaryContainer.environment.DOCKER_HOST = "unix:///var/run/docker.sock";
+  job.primaryContainer.environment.DOCKER_HOST = "tcp://0.0.0.0:2376";
   job.primaryContainer.command = ["sh"];
   job.primaryContainer.arguments = [
     "-c",
