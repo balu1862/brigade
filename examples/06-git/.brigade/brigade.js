@@ -2,7 +2,7 @@ const { events, Job } = require("@brigadecore/brigadier");
 
 events.on("brigade.sh/cli", "exec", async event => {
   let job = new Job("dood", "docker", event);
-  let keys = Object.keys(job.primaryContainer)
+  let keys = Object.keys(job.primaryContainer.workspaceMountPath)
   console.log(keys);
   job.primaryContainer.useHostDockerSocket = true;
   job.primaryContainer.privileged = true;
