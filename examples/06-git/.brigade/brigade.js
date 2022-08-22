@@ -8,8 +8,7 @@ events.on("brigade.sh/cli", "exec", async event => {
     "-c",
     // Wait for the Docker daemon to start up
     // And then pull the image
-    //"sleep 20 && docker pull busybox"
-    "sleep 1"
+    "sleep 20 && docker pull busybox"
   ];
 
   // Run the Docker daemon in a sidecar container
@@ -17,14 +16,6 @@ events.on("brigade.sh/cli", "exec", async event => {
     "docker": new Container("docker:stable-dind")
   };
   job.sidecarContainers.docker.privileged = true
-  job.sidecarContainers.command = ["sh"];
-  job.sidecarContainers.arguments = [
-    "-c",
-    // Wait for the Docker daemon to start up
-    // And then pull the image
-    "sleep 20 && docker pull busybox"
-  ];
-
   await job.run();
 });
 
