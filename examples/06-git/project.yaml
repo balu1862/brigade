@@ -11,6 +11,8 @@ spec:
     - exec
   workerTemplate:
     # logLevel: DEBUG
+    jobPolicies:
+      allowPrivileged: true
     configFilesDirectory: examples/06-git/.brigade
     git:
       cloneURL: https://github.com/brigadecore/brigade.git
