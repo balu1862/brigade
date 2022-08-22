@@ -4,7 +4,7 @@ events.on("brigade.sh/cli", "exec", async event => {
   let job = new Job("dind", "docker:stable-dind", event);
   let keys = Object.keys(job.primaryContainer)
   console.log(keys);
-  job.primaryContainer.docker.privileged = true;
+  job.primaryContainer.privileged = true;
   job.primaryContainer.environment.DOCKER_HOST = "localhost:2375";
   job.primaryContainer.command = ["sh"];
   job.primaryContainer.arguments = [
